@@ -6,7 +6,6 @@ using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using Wayway.Engine.Events.Core;
 
-
 namespace Wayway.Engine.Events.Editor
 {
     public class GameEventDrawer : OdinAttributeProcessor<GameEventCore>
