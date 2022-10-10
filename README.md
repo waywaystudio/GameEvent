@@ -101,3 +101,4 @@ namespace Wayway.Engine.Events
 - - - 
 ## **패치내역**
 * 22.10.01 첫 작성
+* 22.10.10 Dependancy 확보를 위해서 Wayway.Engine.Extension에 있던 ReverseForeach 를 GameEvent 내부에 구현
