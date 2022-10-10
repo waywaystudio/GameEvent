@@ -4,4 +4,8 @@
 
 !/[Aa]ssets/
 /[Aa]ssets/*
+!/[Aa]ssets/Wayway/
+/[Aa]ssets/Wayway/*
+!/[Aa]ssets/Wayway/Engine/
+/[Aa]ssets/Wayway/Engine/*
 !/[Aa]ssets/Wayway/Engine/Events/
