@@ -1,4 +1,4 @@
 namespace Wayway.Engine.Events
 {
-    public class GameEventString : GameEvent<string> {}
+    public class GameEventString : GameEventParameter<string> {}
 }

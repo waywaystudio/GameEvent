@@ -1,6 +1,6 @@
 namespace Wayway.Engine.Events
 {
-    public class GameEventInt : GameEvent<int> {}
+    public class GameEventInt : GameEventParameter<int> {}
 }
 
 

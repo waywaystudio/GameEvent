@@ -37,7 +37,7 @@ namespace Wayway.Engine.Events.Editor
         }
     }
     
-    public class GameEventDrawer<T, F> : OdinAttributeProcessor<T> where T : GameEvent<F>
+    public class GameEventDrawer<T, F> : OdinAttributeProcessor<T> where T : GameEventParameter<F>
     {
         public override void ProcessChildMemberAttributes(InspectorProperty parentProperty, MemberInfo member, List<Attribute> attributes)
         {
@@ -53,7 +53,7 @@ namespace Wayway.Engine.Events.Editor
         }
     }
     
-    public class GameEventDrawer<T, F0, F1> : OdinAttributeProcessor<T> where T : GameEvent<F0, F1>
+    public class GameEventDrawer<T, F0, F1> : OdinAttributeProcessor<T> where T : GameEventParameter<F0, F1>
     {
         public override void ProcessChildMemberAttributes(InspectorProperty parentProperty, MemberInfo member, List<Attribute> attributes)
         {

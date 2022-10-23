@@ -1,4 +1,4 @@
 namespace Wayway.Engine.Events
 {
-    public class GameEventDouble : GameEvent<double> {}
+    public class GameEventDouble : GameEventParameter<double> {}
 }
