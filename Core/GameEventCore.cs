@@ -28,7 +28,7 @@ namespace Wayway.Engine.Events.Core
             }
         }
         
-        public void UnRegister(GameEventListenerCore listener)
+        public void Unregister(GameEventListenerCore listener)
         {
             if (ListenerList.Contains(listener)) 
                 ListenerList.Remove(listener);
