@@ -1,4 +1,4 @@
 namespace Wayway.Engine.Events
 {
-    public class GameEventFloat : GameEventParameter<float> {}
+    public class GameEventFloat : GameEvent<float> {}
 }

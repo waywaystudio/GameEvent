@@ -4,12 +4,10 @@ using System.Collections.Generic;
 using System.Reflection;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
-using Wayway.Engine.Events.Core;
-
 
 namespace Wayway.Engine.Events.Editor
 {
-    public class GameEventDrawer : OdinAttributeProcessor<GameEventCore>
+    public class GameEventDrawer : OdinAttributeProcessor<GameEvent>
     {
         public override void ProcessChildMemberAttributes(InspectorProperty parentProperty, MemberInfo member, List<Attribute> attributes)
         {
@@ -24,8 +22,40 @@ namespace Wayway.Engine.Events.Editor
             }
         }
     }
-
-    public class GameEventListenerDrawer : OdinAttributeProcessor<GameEventListenerCore>
+    
+    public class GameEventDrawer<T0, T1> : OdinAttributeProcessor<T0> where T0 : GameEvent<T1>
+    {
+        public override void ProcessChildMemberAttributes(InspectorProperty parentProperty, MemberInfo member, List<Attribute> attributes)
+        {
+            switch (member.Name)
+            {
+                case "subscriberList":
+                    attributes.Add(new ReadOnlyAttribute());
+                    break;
+                case "ShowListener":
+                    attributes.Add(new ButtonAttribute(ButtonSizes.Medium));
+                    break;
+            }
+        }
+    }
+    
+    public class GameEventDrawer<T0, T1, T2> : OdinAttributeProcessor<T0> where T0 : GameEvent<T1, T2>
+    {
+        public override void ProcessChildMemberAttributes(InspectorProperty parentProperty, MemberInfo member, List<Attribute> attributes)
+        {
+            switch (member.Name)
+            {
+                case "subscriberList":
+                    attributes.Add(new ReadOnlyAttribute());
+                    break;
+                case "ShowListener":
+                    attributes.Add(new ButtonAttribute(ButtonSizes.Medium));
+                    break;
+            }
+        }
+    }
+    
+    public class GameEventListenerDrawer : OdinAttributeProcessor<GameEventListener>
     {
         public override void ProcessChildMemberAttributes(InspectorProperty parentProperty, MemberInfo member, List<Attribute> attributes)
         {
@@ -37,34 +67,28 @@ namespace Wayway.Engine.Events.Editor
         }
     }
     
-    public class GameEventDrawer<T0, T1> : OdinAttributeProcessor<T0> where T0 : GameEventParameter<T1>
+    public class GameEventListenerDrawer<T0, T1> : OdinAttributeProcessor<T0> where T0 : GameEventListener<T1>
     {
         public override void ProcessChildMemberAttributes(InspectorProperty parentProperty, MemberInfo member, List<Attribute> attributes)
         {
-            switch (member.Name)
+            if (member.Name == "priority")
             {
-                case "subscriberList":
-                    attributes.Add(new ReadOnlyAttribute());
-                    break;
-                case "ShowListener":
-                    attributes.Add(new ButtonAttribute(ButtonSizes.Medium));
-                    break;
+                attributes.Add(new PropertyRangeAttribute(0, 10));
+                attributes.Add(new HideLabelAttribute());
             }
         }
     }
     
-    public class GameEventDrawer<T0, T1, T2> : OdinAttributeProcessor<T0> where T0 : GameEventParameter<T1, T2>
+    
+    
+    public class GameEventListenerDrawer<T0, T1, T2> : OdinAttributeProcessor<T0> where T0 : GameEventListener<T1, T2>
     {
         public override void ProcessChildMemberAttributes(InspectorProperty parentProperty, MemberInfo member, List<Attribute> attributes)
         {
-            switch (member.Name)
+            if (member.Name == "priority")
             {
-                case "subscriberList":
-                    attributes.Add(new ReadOnlyAttribute());
-                    break;
-                case "ShowListener":
-                    attributes.Add(new ButtonAttribute(ButtonSizes.Medium));
-                    break;
+                attributes.Add(new PropertyRangeAttribute(0, 10));
+                attributes.Add(new HideLabelAttribute());
             }
         }
     }
