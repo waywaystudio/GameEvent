@@ -5,8 +5,7 @@
 ## GameEventListener : MonoBehaviour    
   
 * 게임오브젝트에 **GameEventListener Component**를 추가 합니다.   
-* targetEventList에 구독 하고싶은 게임이벤트를 할당합니다. 
-    * 복수의 게임 이벤트를 할당할 수 있습니다.
+* targetEvent에 구독 하고싶은 게임이벤트를 할당합니다.    
 * Priority 를 통해서 함수의 실행 순서를 조절할 수 있습니다.
   * 값이 작을수록 먼저 실행됩니다.
   * 중복 값이 있어도 괜찮습니다. 먼저 등록한게 먼저 실행됩니다.
@@ -100,5 +99,7 @@ namespace Wayway.Engine.Events
 
 - - - 
 ## **패치내역**
-* 22.10.01 첫 작성
+* 22.10.30 GameEventCore와 GameEventListenerCore를 삭제. Downcast는 불가능;
 * 22.10.10 Dependancy 확보를 위해서 Wayway.Engine.Extension에 있던 ReverseForeach 를 GameEvent 내부에 구현
+* 22.10.01 첫 작성
+
